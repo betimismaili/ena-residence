@@ -1,0 +1,25 @@
+// Poppins
+@font-face {
+	font-family: 'Poppins', sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	src: url('../fonts/Poppins/Poppins-Regular.ttf'); /* IE9 Compat Modes */
+	src: local(''),
+		/* Modern Browsers */ url('../fonts/Poppins/Poppins-Regular.ttf')
+			format('truetype'),
+		/* Safari, Android, iOS */
+			url('../fonts/Poppins/Poppins-Regular.ttf') format('svg'); /* Legacy iOS */
+}
+
+$poppins: 'Poppins', sans-serif;
+
+// Poppins Regular
+.font-poppins--regular {
+	font-family: $poppins;
+	font-weight: 400;
+}
+
+figcaption {
+	font-family: $poppins;
+	font-size: 1.4rem;
+}
