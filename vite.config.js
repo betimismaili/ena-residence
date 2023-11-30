@@ -13,7 +13,6 @@ export default {
 		rollupOptions: {
 			input: {
 				main: resolve(__dirname, 'index.html'),
-				about: resolve(__dirname, 'about.html'),
 			},
 		},
 	},
