@@ -8,6 +8,7 @@ export default {
 			root: resolve(__dirname, 'src'),
 		}),
 	],
+	base: '/ena-residence/',
 	build: {
 		rollupOptions: {
 			input: {
