@@ -1,25 +1,86 @@
-// Poppins
+// Outfit
 @font-face {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Outfit', sans-serif;
 	font-style: normal;
 	font-weight: 400;
-	src: url('../fonts/Poppins/Poppins-Regular.ttf'); /* IE9 Compat Modes */
+	src: url('../fonts/Outfit/Outfit-Regular.ttf');
+	/* IE9 Compat Modes */
 	src: local(''),
-		/* Modern Browsers */ url('../fonts/Poppins/Poppins-Regular.ttf')
-			format('truetype'),
+		/* Modern Browsers */
+		url('../fonts/Outfit/Outfit-Regular.ttf') format('truetype'),
 		/* Safari, Android, iOS */
-			url('../fonts/Poppins/Poppins-Regular.ttf') format('svg'); /* Legacy iOS */
+		url('../fonts/Outfit/Outfit-Regular.ttf') format('svg');
+	/* Legacy iOS */
 }
 
-$poppins: 'Poppins', sans-serif;
+@font-face {
+	font-family: 'Outfit', sans-serif;
+	font-style: normal;
+	font-weight: 500;
+	src: url('../fonts/Outfit/Outfit-Medium.ttf');
+	/* IE9 Compat Modes */
+	src: local(''),
+		/* Modern Browsers */
+		url('../fonts/Outfit/Outfit-Medium.ttf') format('truetype'),
+		/* Safari, Android, iOS */
+		url('../fonts/Outfit/Outfit-Medium.ttf') format('svg');
+	/* Legacy iOS */
+}
 
-// Poppins Regular
-.font-poppins--regular {
-	font-family: $poppins;
+// Manrope
+@font-face {
+	font-family: 'Manrope', sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	src: url('../fonts/Manrope/Manrope-Regular.ttf');
+	/* IE9 Compat Modes */
+	src: local(''),
+		/* Modern Browsers */
+		url('../fonts/Manrope/Manrope-Regular.ttf') format('truetype'),
+		/* Safari, Android, iOS */
+		url('../fonts/Manrope/Manrope-Regular.ttf') format('svg');
+	/* Legacy iOS */
+}
+
+// Manrope
+@font-face {
+	font-family: 'Manrope', sans-serif;
+	font-style: normal;
+	font-weight: 600;
+	src: url('../fonts/Manrope/Manrope-SemiBold.ttf');
+	/* IE9 Compat Modes */
+	src: local(''),
+		/* Modern Browsers */
+		url('../fonts/Manrope/Manrope-SemiBold.ttf') format('truetype'),
+		/* Safari, Android, iOS */
+		url('../fonts/Manrope/Manrope-SemiBold.ttf') format('svg');
+	/* Legacy iOS */
+}
+
+
+$outfit: 'Outfit', sans-serif;
+$manrope: 'Manrope', sans-serif;
+
+// Outfit Regular
+.font-outfit--regular {
+	font-family: $outfit;
 	font-weight: 400;
 }
 
-figcaption {
-	font-family: $poppins;
-	font-size: 1.4rem;
+// Outfit Medium
+.font-outfit--medium {
+	font-family: $outfit;
+	font-weight: 500;
+}
+
+// Manrope Regular
+.font-manrope--regular {
+	font-family: $manrope;
+	font-weight: 400;
+}
+
+// Manrope SemiBold
+.font-manrope--semibold {
+	font-family: $manrope;
+	font-weight: 500;
 }

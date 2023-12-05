@@ -8,11 +8,11 @@ export default {
 			root: resolve(__dirname, 'src'),
 		}),
 	],
-	base: '/ena-residence/',
 	build: {
 		rollupOptions: {
 			input: {
 				main: resolve(__dirname, 'index.html'),
+				about: resolve(__dirname, 'about.html'),
 			},
 		},
 	},
