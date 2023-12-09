@@ -1,20 +1,24 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import '/src/scss/app.scss';
 
-import Swiper, { Pagination } from 'swiper';
+import Swiper, { Pagination, Autoplay } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
+// Site Swiper
 let swiper = null;
 function initSwiper() {
 	const screenWidth = window.innerWidth;
+
 	if (screenWidth > 992) {
-		// Initialize Swiper
+		// Initialize Swiper if it's not already initialized
 		if (!swiper) {
-			swiper = new Swiper('.swiper', {
+			swiper = new Swiper('.main-swiper', {
 				modules: [Pagination],
 				direction: 'vertical',
 				pagination: {
-					el: '.swiper-pagination',
+					el: '.main-pagination',
 					clickable: true,
 				},
 			});
@@ -26,8 +30,8 @@ function initSwiper() {
 			swiper = null;
 
 			// Manually set styles for the slides and container when Swiper is disabled
-			document.querySelector('.swiper-wrapper').style.transform = 'translate3d(0px, 0px, 0px)';
-			document.querySelectorAll('.swiper-slide').forEach((slide) => {
+			document.querySelector('.main-swiper-wrapper').style.transform = 'translate3d(0px, 0px, 0px)';
+			document.querySelectorAll('.main-swiper-slide').forEach((slide) => {
 				slide.style.width = '';
 				slide.style.height = '';
 			});
@@ -38,4 +42,22 @@ function initSwiper() {
 initSwiper();
 window.addEventListener('resize', function () {
 	initSwiper();
+});
+
+// About us Swiper
+const aboutSwiper = new Swiper('.about-swiper', {
+	modules: [Autoplay],
+	autoplay: {
+		delay: 500,
+	},
+	loop: true,
+	forceLoop: true,
+	direction: 'vertical',
+	slidesPerView: 3,
+});
+
+// Standards Swiper
+const standardsSwiper = new Swiper('.standards-swiper', {
+	loop: true,
+	direction: 'horizontal',
 });

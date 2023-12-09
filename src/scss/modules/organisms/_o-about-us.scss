@@ -1,0 +1,24 @@
+.o-about {
+    .swiper {
+        .swiper-wrapper {
+            .swiper-slide {
+                img {
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+
+    &__content {
+        p {
+            margin-bottom: 2.5rem;
+            font-family: $manrope;
+            line-height: 2.7rem;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
