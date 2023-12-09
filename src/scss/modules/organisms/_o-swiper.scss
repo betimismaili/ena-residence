@@ -1,0 +1,13 @@
+.swiper {
+    height: 100vh;
+
+    @include media-breakpoint-down(lg) {
+        height: fit-content;
+    }
+
+    .swiper-wrapper {
+        @include media-breakpoint-down(lg) {
+            flex-direction: column;
+        }
+    }
+}

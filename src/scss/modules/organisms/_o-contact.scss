@@ -1,0 +1,74 @@
+.o-contact {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #18203A99;
+    background-blend-mode: multiply;
+    //padding-bottom: 11rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__headline {
+        font-size: 15rem;
+        line-height: 22.5rem;
+        font-weight: 500;
+
+        @include media-breakpoint-down(xl) {
+            font-size: 12rem;
+            line-height: 15rem;
+        }
+
+        @include media-breakpoint-down(lg) {
+            font-size: 8rem;
+            line-height: 12rem;
+        }
+
+        br {
+            @include media-breakpoint-down(xl) {
+                display: none;
+            }
+        }
+    }
+
+    &__social-media {
+        img {
+            max-width: 2.4rem;
+            max-height: 2.4rem;
+            object-fit: contain;
+            margin-right: 0.8rem;
+
+            @include media-breakpoint-down(sm) {
+                max-width: 1.8rem;
+                max-height: 1.8rem;
+            }
+        }
+
+        a {
+            margin-top: 1.6rem;
+        }
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"] {
+        background-color: transparent;
+        border: 0;
+        border-bottom: 1px solid $white;
+        box-shadow: none;
+        outline: none;
+        padding: 1.2rem 0.5rem;
+        color: $white;
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+        margin-bottom: 2.4rem;
+        letter-spacing: 0.5px;
+        font-family: $manrope;
+
+        &::placeholder {
+            color: $white;
+            font-size: 1.6rem;
+            line-height: 2.4rem;
+        }
+    }
+}

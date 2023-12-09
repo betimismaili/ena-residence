@@ -1,0 +1,47 @@
+.o-summary {
+    margin-top: 11.7rem;
+
+    @include media-breakpoint-down(xl) {
+        margin-top: 8rem;
+    }
+
+    @include media-breakpoint-down(lg) {
+        margin-top: 4rem;
+        padding-bottom: 2rem;
+    }
+
+    &__item {
+        width: 26rem;
+        max-width: 100%;
+
+        figure {
+            margin-bottom: 2.4rem;
+            overflow: hidden;
+
+            img {
+                object-fit: cover;
+                transition: 0.3s;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+        }
+
+        &__first-img {
+            height: 26rem;
+        }
+
+        &__second-img {
+            height: 34rem;
+        }
+
+        &__third-img {
+            height: 23rem;
+        }
+
+        &__fourth-img {
+            height: 43rem;
+        }
+    }
+}

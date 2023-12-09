@@ -1,0 +1,22 @@
+.a-btn-default {
+    background-color: #CDD2E3;
+    color: $primary;
+    padding: 1.4rem;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    transition: 0.3s ease-in-out;
+    height: fit-content;
+
+    &:hover {
+        background-color: $primary;
+        color: #F8F9FC;
+    }
+}

@@ -84,3 +84,15 @@ $manrope: 'Manrope', sans-serif;
 	font-family: $manrope;
 	font-weight: 500;
 }
+
+h3, .h3 {
+	@include media-breakpoint-down(sm) {
+		font-size: 1.8rem;
+	}
+}
+
+p {
+	@include media-breakpoint-down(sm) {
+		font-size: 1.4rem;
+	}
+}
