@@ -49,8 +49,11 @@ function initSwiper() {
 						}
 					},
 					slideChangeTransitionEnd: function () {
+						// Check if the active slide has the "white-dots" class
 						const activeSlide = this.slides[this.activeIndex];
 						const isWhiteDotsSlide = activeSlide.classList.contains('white-dots');
+
+						// Add or remove the class from the pagination element accordingly
 						const pagination = document.querySelector('.main-pagination');
 						if (isWhiteDotsSlide) {
 							pagination.classList.add('white-dots');
@@ -72,9 +75,12 @@ function initSwiper() {
 			});
 		}
 	} else {
+		// Destroy Swiper if it's already initialized
 		if (swiper) {
 			swiper.destroy();
 			swiper = null;
+
+			// Manually set styles for the slides and container when Swiper is disabled
 			document.querySelector('.main-swiper-wrapper').style.transform = 'translate3d(0px, 0px, 0px)';
 			document.querySelectorAll('.main-swiper-slide').forEach((slide) => {
 				slide.style.width = '';
