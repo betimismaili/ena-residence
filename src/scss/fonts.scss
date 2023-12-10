@@ -1,60 +1,60 @@
 // Outfit
 @font-face {
-	font-family: 'Outfit', sans-serif;
-	font-style: normal;
-	font-weight: 400;
-	src: url('../fonts/Outfit/Outfit-Regular.ttf');
-	/* IE9 Compat Modes */
-	src: local(''),
-		/* Modern Browsers */
-		url('../fonts/Outfit/Outfit-Regular.ttf') format('truetype'),
-		/* Safari, Android, iOS */
-		url('../fonts/Outfit/Outfit-Regular.ttf') format('svg');
-	/* Legacy iOS */
+    font-family: 'Outfit', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/Outfit/Outfit-Regular.ttf');
+    /* IE9 Compat Modes */
+    src: local(''),
+        /* Modern Browsers */
+    url('../fonts/Outfit/Outfit-Regular.ttf') format('truetype'),
+        /* Safari, Android, iOS */
+    url('../fonts/Outfit/Outfit-Regular.ttf') format('svg');
+    /* Legacy iOS */
 }
 
 @font-face {
-	font-family: 'Outfit', sans-serif;
-	font-style: normal;
-	font-weight: 500;
-	src: url('../fonts/Outfit/Outfit-Medium.ttf');
-	/* IE9 Compat Modes */
-	src: local(''),
-		/* Modern Browsers */
-		url('../fonts/Outfit/Outfit-Medium.ttf') format('truetype'),
-		/* Safari, Android, iOS */
-		url('../fonts/Outfit/Outfit-Medium.ttf') format('svg');
-	/* Legacy iOS */
-}
-
-// Manrope
-@font-face {
-	font-family: 'Manrope', sans-serif;
-	font-style: normal;
-	font-weight: 400;
-	src: url('../fonts/Manrope/Manrope-Regular.ttf');
-	/* IE9 Compat Modes */
-	src: local(''),
-		/* Modern Browsers */
-		url('../fonts/Manrope/Manrope-Regular.ttf') format('truetype'),
-		/* Safari, Android, iOS */
-		url('../fonts/Manrope/Manrope-Regular.ttf') format('svg');
-	/* Legacy iOS */
+    font-family: 'Outfit', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    src: url('../fonts/Outfit/Outfit-Medium.ttf');
+    /* IE9 Compat Modes */
+    src: local(''),
+        /* Modern Browsers */
+    url('../fonts/Outfit/Outfit-Medium.ttf') format('truetype'),
+        /* Safari, Android, iOS */
+    url('../fonts/Outfit/Outfit-Medium.ttf') format('svg');
+    /* Legacy iOS */
 }
 
 // Manrope
 @font-face {
-	font-family: 'Manrope', sans-serif;
-	font-style: normal;
-	font-weight: 600;
-	src: url('../fonts/Manrope/Manrope-SemiBold.ttf');
-	/* IE9 Compat Modes */
-	src: local(''),
-		/* Modern Browsers */
-		url('../fonts/Manrope/Manrope-SemiBold.ttf') format('truetype'),
-		/* Safari, Android, iOS */
-		url('../fonts/Manrope/Manrope-SemiBold.ttf') format('svg');
-	/* Legacy iOS */
+    font-family: 'Manrope', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/Manrope/Manrope-Regular.ttf');
+    /* IE9 Compat Modes */
+    src: local(''),
+        /* Modern Browsers */
+    url('../fonts/Manrope/Manrope-Regular.ttf') format('truetype'),
+        /* Safari, Android, iOS */
+    url('../fonts/Manrope/Manrope-Regular.ttf') format('svg');
+    /* Legacy iOS */
+}
+
+// Manrope
+@font-face {
+    font-family: 'Manrope', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    src: url('../fonts/Manrope/Manrope-SemiBold.ttf');
+    /* IE9 Compat Modes */
+    src: local(''),
+        /* Modern Browsers */
+    url('../fonts/Manrope/Manrope-SemiBold.ttf') format('truetype'),
+        /* Safari, Android, iOS */
+    url('../fonts/Manrope/Manrope-SemiBold.ttf') format('svg');
+    /* Legacy iOS */
 }
 
 
@@ -63,43 +63,50 @@ $manrope: 'Manrope', sans-serif;
 
 // Outfit Regular
 .font-outfit--regular {
-	font-family: $outfit;
-	font-weight: 400;
+    font-family: $outfit;
+    font-weight: 400;
 }
 
 // Outfit Medium
 .font-outfit--medium {
-	font-family: $outfit;
-	font-weight: 500;
+    font-family: $outfit;
+    font-weight: 500;
 }
 
 // Manrope Regular
 .font-manrope--regular {
-	font-family: $manrope;
-	font-weight: 400;
+    font-family: $manrope;
+    font-weight: 400;
 }
 
 // Manrope SemiBold
 .font-manrope--semibold {
-	font-family: $manrope;
-	font-weight: 500;
+    font-family: $manrope;
+    font-weight: 500;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+    font-family: $outfit;
 }
 
 
 h2, .h2 {
-	@include media-breakpoint-down(md) {
-		font-size: 4rem;
-	}
+    @include media-breakpoint-down(lg) {
+        font-size: 4rem;
+    }
 }
 
 h3, .h3 {
-	@include media-breakpoint-down(md) {
-		font-size: 1.8rem;
-	}
+    @include media-breakpoint-down(lg) {
+        font-size: 1.8rem;
+    }
 }
 
 p {
-	@include media-breakpoint-down(md) {
-		font-size: 1.4rem;
-	}
+    font-family: $manrope;
+    line-height: 2.7rem;
+
+    @include media-breakpoint-down(lg) {
+        font-size: 1.4rem;
+    }
 }

@@ -6,11 +6,11 @@ import Swiper, { Pagination, Autoplay } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
+
 // Site Swiper
 let swiper = null;
 function initSwiper() {
 	const screenWidth = window.innerWidth;
-
 	if (screenWidth > 992) {
 		// Initialize Swiper if it's not already initialized
 		if (!swiper) {
@@ -20,6 +20,21 @@ function initSwiper() {
 				pagination: {
 					el: '.main-pagination',
 					clickable: true,
+				},
+				on: {
+					slideChangeTransitionEnd: function () {
+						// Check if the active slide has the "white-dots" class
+						const activeSlide = this.slides[this.activeIndex];
+						const isWhiteDotsSlide = activeSlide.classList.contains('white-dots');
+
+						// Add or remove the class from the pagination element accordingly
+						const pagination = document.querySelector('.main-pagination');
+						if (isWhiteDotsSlide) {
+							pagination.classList.add('white-dots');
+						} else {
+							pagination.classList.remove('white-dots');
+						}
+					},
 				},
 			});
 		}
@@ -38,23 +53,40 @@ function initSwiper() {
 		}
 	}
 }
-// Initial call to set up Swiper based on initial screen width
 initSwiper();
 window.addEventListener('resize', function () {
 	initSwiper();
 });
 
+
+
 // About us Swiper
-const aboutSwiper = new Swiper('.about-swiper', {
-	modules: [Autoplay],
-	autoplay: {
-		delay: 500,
-	},
-	loop: true,
-	forceLoop: true,
-	direction: 'vertical',
-	slidesPerView: 3,
+document.addEventListener('DOMContentLoaded', function () {
+	const aboutSwiper = new Swiper('.about-swiper', {
+		modules: [Autoplay],
+		autoplay: {
+			delay: 2000,
+		},
+		loop: true,
+		forceLoop: true,
+		direction: 'vertical',
+		slidesPerView: 3,
+	});
+
+	function updateSwiperDirection() {
+		const windowWidth = window.innerWidth;
+		if (windowWidth <= 992) {
+			aboutSwiper.params.direction = 'horizontal';
+			aboutSwiper.update();
+		} else {
+			aboutSwiper.params.direction = 'vertical';
+			aboutSwiper.update();
+		}
+	}
+	updateSwiperDirection();
+	window.addEventListener('resize', updateSwiperDirection);
 });
+
 
 // Standards Swiper
 const standardsSwiper = new Swiper('.standards-swiper', {

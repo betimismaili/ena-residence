@@ -9,6 +9,10 @@
     flex-direction: column;
     justify-content: center;
 
+    @include media-breakpoint-down(lg) {
+        padding: 3rem 0;
+    }
+
     &__headline {
         font-size: 15rem;
         line-height: 22.5rem;
@@ -32,7 +36,9 @@
     }
 
     p {
-        line-height: 2.7rem;
+        @include media-breakpoint-down(lg) {
+            line-height: 2.1rem;
+        }
     }
 
     &__social-media {
@@ -42,7 +48,7 @@
             object-fit: contain;
             margin-right: 0.8rem;
 
-            @include media-breakpoint-down(sm) {
+            @include media-breakpoint-down(lg) {
                 max-width: 1.8rem;
                 max-height: 1.8rem;
             }
@@ -50,6 +56,18 @@
 
         a {
             margin-top: 1.6rem;
+
+            &.small {
+                @include media-breakpoint-down(lg) {
+                    font-size: 1.4rem;
+                }
+            }
+        }
+
+        span.lead {
+            @include media-breakpoint-down(lg) {
+                font-size: 1.6rem;
+            }
         }
     }
 
@@ -73,6 +91,13 @@
             color: $white;
             font-size: 1.6rem;
             line-height: 2.4rem;
+        }
+
+        @include media-breakpoint-down(lg) {
+            padding: 2rem 0.5rem;
+            font-size: 1.4rem;
+            line-height: 2.1rem;
+            margin-bottom: 1.3rem;
         }
     }
 }

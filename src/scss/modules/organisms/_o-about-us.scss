@@ -1,9 +1,38 @@
 .o-about {
+    @include media-breakpoint-down(lg) {
+        padding-bottom: 7.3rem;
+    }
+
     .swiper {
+        @include media-breakpoint-down(lg) {
+            height: 19.7rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
         .swiper-wrapper {
+            @include media-breakpoint-up(lg) {
+                width: 100%;
+            }
+
+            @include media-breakpoint-down(lg) {
+                flex-direction: initial;
+                height: 100%;
+            }
+
             .swiper-slide {
+                @include media-breakpoint-up(lg) {
+                    width: 100%;
+                }
+
+                @include media-breakpoint-down(lg) {
+                    height: 100% !important;
+                }
+
                 img {
                     width: 100%;
+                    height: 100%;
                     object-fit: cover;
                 }
             }
@@ -11,13 +40,19 @@
     }
 
     &__content {
+        @include media-breakpoint-down(lg) {
+            margin-top: 22.7rem;
+        }
+
         p {
             margin-bottom: 2.5rem;
-            font-family: $manrope;
-            line-height: 2.7rem;
 
             &:last-child {
                 margin-bottom: 0;
+            }
+
+            @include media-breakpoint-down(lg) {
+                font-size: 1.8rem;
             }
         }
     }

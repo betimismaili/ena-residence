@@ -45,7 +45,9 @@
         }
 
         p {
-            line-height: 2.4rem;
+            @include media-breakpoint-down(lg) {
+                line-height: 2.1rem;
+            }
         }
     }
 }
