@@ -1,0 +1,50 @@
+.o-intro {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #18203A99;
+    background-blend-mode: multiply;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .h1 {
+        line-height: 0.75;
+
+        @include media-breakpoint-down(lg) {
+            line-height: 5rem;
+        }
+    }
+
+    h3 {
+        margin-top: 14rem;
+        line-height: 3.3rem;
+
+        @include media-breakpoint-down(md) {
+            margin-top: 8rem;
+            font-size: 1.6rem;
+            line-height: 2.2rem;
+        }
+    }
+
+    &__scroll-down {
+        position: absolute;
+        bottom: 3.6rem;
+        left: 50%;
+        transform: translateX(-50%);
+
+        figure {
+            width: 6.4rem;
+            height: 6.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #FFFFFF4D;
+            border-radius: 50%;
+
+            img {
+                object-fit: contain;
+            }
+        }
+    }
+}

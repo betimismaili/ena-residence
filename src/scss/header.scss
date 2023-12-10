@@ -1,0 +1,205 @@
+.o-header {
+    position: fixed;
+    z-index: 2;
+    top: 2.4rem;
+    width: 100%;
+
+    @include media-breakpoint-down(lg) {
+        position: relative;
+        margin-bottom: -4rem;
+        top: 1.6rem;
+    }
+
+    ul {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        li {
+            a {
+                color: $primary;
+                font-size: 1.8rem;
+                font-family: $manrope;
+
+                &:hover {
+                    color: $primary;
+                }
+            }
+        }
+
+        &.o-header__right-list {
+            justify-content: end;
+
+            img {
+                width: inherit;
+                height: inherit;
+                object-fit: contain;
+                transform: rotate(-135deg);
+            }
+        }
+
+        &.o-header__language {
+            li {
+                margin-right: 1.2rem;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                //a {
+                //    color: #E0E1E5;
+                //}
+
+                &.is-active {
+                    a {
+                        //color: $white;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+
+    &__hamburger {
+        position: absolute;
+        right: 1.5rem;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        width: fit-content;
+        padding: 0;
+        margin: 0;
+
+        span {
+            display: block;
+            width: 3rem;
+            height: 0.3rem;
+            border-radius: 0.5rem;
+            background-color: $white;
+            margin: 0.5rem 0;
+        }
+    }
+
+    .offcanvas {
+        button.btn-close {
+            background: none;
+            opacity: 1;
+            padding: 2.4rem 2.7rem;
+            box-shadow: none;
+            outline: none;
+            border: none;
+        }
+
+        .offcanvas-body {
+            ul {
+                list-style: none;
+                padding: 0 1.5rem;
+                margin-top: 6rem;
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+
+                li {
+                    padding: 1.2rem 1rem;
+                    margin-bottom: 1rem;
+                    width: 100%;
+                    border-bottom: 1px solid $white;
+
+                    a {
+                        color: $white;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        font-size: 1.4rem;
+                        letter-spacing: 1px;
+
+                        img {
+                            width: 1.6rem;
+                            height: 1.6rem;
+                            object-fit: contain;
+                            margin-right: 1rem;
+                        }
+                    }
+                }
+            }
+
+            button {
+                margin: 3rem 1.5rem 6.4rem 1.5rem;
+                border-radius: 1rem;
+                letter-spacing: 1px;
+            }
+        }
+    }
+
+    .logo {
+        cursor: pointer;
+
+        @include media-breakpoint-down(lg) {
+            img {
+                position: relative;
+                z-index: 1046;
+            }
+        }
+
+        img {
+            width: 5.7rem;
+            object-fit: contain;
+
+            @include media-breakpoint-down(lg) {
+                width: 4rem;
+                height: 4rem;
+            }
+        }
+    }
+
+    .logo-white,
+    .down-white-arrow {
+        display: none;
+
+        @include media-breakpoint-down(lg) {
+            display: block;
+        }
+    }
+
+    .logo-blue {
+        @include media-breakpoint-down(lg) {
+            display: none
+        }
+    }
+
+    &.hidden-menu {
+        .o-header__left-list,
+        .o-header__right-list {
+
+            @include media-breakpoint-up(lg) {
+                display: none;
+            }
+        }
+    }
+
+    &.header-white {
+        @include media-breakpoint-up(lg) {
+            ul {
+                li {
+                    a {
+                        color: $white;
+                    }
+                }
+            }
+
+            .logo-white,
+            .down-white-arrow {
+                display: block;
+            }
+
+            .logo-blue,
+            .down-blue-arrow {
+                display: none;
+            }
+        }
+    }
+}

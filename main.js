@@ -9,10 +9,15 @@ import 'swiper/css/pagination';
 
 // Site Swiper
 let swiper = null;
+
+// Add the "hidden-menu" class to the header initially
+const header = document.querySelector('header');
+header.classList.add('hidden-menu');
+
 function initSwiper() {
 	const screenWidth = window.innerWidth;
+
 	if (screenWidth > 992) {
-		// Initialize Swiper if it's not already initialized
 		if (!swiper) {
 			swiper = new Swiper('.main-swiper', {
 				modules: [Pagination],
@@ -22,29 +27,54 @@ function initSwiper() {
 					clickable: true,
 				},
 				on: {
+					init: function () {
+						const initialSlide = this.slides[this.activeIndex];
+						const isWhiteDotsSlide = initialSlide.classList.contains('white-dots');
+						const pagination = document.querySelector('.main-pagination');
+
+						if (isWhiteDotsSlide) {
+							pagination.classList.add('white-dots');
+						}
+
+						// Remove the "hidden-menu" class from the first slide on Swiper initialization
+						if (this.activeIndex === 0) {
+							header.classList.remove('hidden-menu');
+						}
+
+						// Check if the initial slide has the class "white-header" and add the class to the header
+						if (initialSlide.classList.contains('white-header')) {
+							header.classList.add('header-white');
+						} else {
+							header.classList.remove('header-white');
+						}
+					},
 					slideChangeTransitionEnd: function () {
-						// Check if the active slide has the "white-dots" class
 						const activeSlide = this.slides[this.activeIndex];
 						const isWhiteDotsSlide = activeSlide.classList.contains('white-dots');
-
-						// Add or remove the class from the pagination element accordingly
 						const pagination = document.querySelector('.main-pagination');
 						if (isWhiteDotsSlide) {
 							pagination.classList.add('white-dots');
 						} else {
 							pagination.classList.remove('white-dots');
 						}
+
+						// Add the "hidden-menu" class on slide change
+						header.classList.add('hidden-menu');
+
+						// Check if the active slide has the class "white-header" and add the class to the header
+						if (activeSlide.classList.contains('white-header')) {
+							header.classList.add('header-white');
+						} else {
+							header.classList.remove('header-white');
+						}
 					},
 				},
 			});
 		}
 	} else {
-		// Destroy Swiper if it's already initialized
 		if (swiper) {
 			swiper.destroy();
 			swiper = null;
-
-			// Manually set styles for the slides and container when Swiper is disabled
 			document.querySelector('.main-swiper-wrapper').style.transform = 'translate3d(0px, 0px, 0px)';
 			document.querySelectorAll('.main-swiper-slide').forEach((slide) => {
 				slide.style.width = '';
@@ -53,9 +83,62 @@ function initSwiper() {
 		}
 	}
 }
-initSwiper();
+
+function updateHeaderClass() {
+	const activeSlide = swiper ? swiper.slides[swiper.activeIndex] : null;
+	const isWhiteHeaderSlide = activeSlide && activeSlide.classList.contains('white-header');
+	const header = document.querySelector('header');
+
+	if (isWhiteHeaderSlide) {
+		header.classList.add('header-white');
+	} else {
+		header.classList.remove('header-white');
+	}
+}
+
 window.addEventListener('resize', function () {
 	initSwiper();
+});
+initSwiper();
+
+// Add event listener for clicking on the logo to remove the "hidden-menu" class
+const logoColumn = document.querySelector('.logo');
+if (logoColumn) {
+	logoColumn.addEventListener('click', function (event) {
+		// Remove the "hidden-menu" class when clicking on the logo
+		header.classList.remove('hidden-menu');
+		// Prevent the click event from propagating to the document click event
+		event.stopPropagation();
+	});
+}
+
+// Add event listener for scrolling to add the "hidden-menu" class and updateHeaderClass
+document.addEventListener('scroll', function () {
+	const isFirstSlide = swiper && swiper.activeIndex === 0;
+
+	// Add the "hidden-menu" class on scroll if not on the first slide
+	if (!isFirstSlide) {
+		header.classList.add('hidden-menu');
+	}
+
+	updateHeaderClass();
+});
+
+// Scroll down button on the first slide
+document.addEventListener('DOMContentLoaded', function () {
+	const scrollDownButton = document.getElementById('scroll-down-btn');
+	const targetSection = document.getElementById('next-section');
+
+	scrollDownButton.addEventListener('click', function () {
+		// Check if Swiper is active
+		if (swiper) {
+			// Use Swiper's built-in method to slide to the next section
+			swiper.slideNext();
+		} else {
+			// Swiper is not active, scroll to the target section manually
+			targetSection.scrollIntoView({ behavior: 'smooth' });
+		}
+	});
 });
 
 
