@@ -6,7 +6,6 @@ import Swiper, { Pagination, Autoplay } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-
 // Site Swiper
 let swiper = null;
 
@@ -29,7 +28,8 @@ function initSwiper() {
 				on: {
 					init: function () {
 						const initialSlide = this.slides[this.activeIndex];
-						const isWhiteDotsSlide = initialSlide.classList.contains('white-dots');
+						const isWhiteDotsSlide =
+							initialSlide.classList.contains('white-dots');
 						const pagination = document.querySelector('.main-pagination');
 
 						if (isWhiteDotsSlide) {
@@ -51,7 +51,8 @@ function initSwiper() {
 					slideChangeTransitionEnd: function () {
 						// Check if the active slide has the "white-dots" class
 						const activeSlide = this.slides[this.activeIndex];
-						const isWhiteDotsSlide = activeSlide.classList.contains('white-dots');
+						const isWhiteDotsSlide =
+							activeSlide.classList.contains('white-dots');
 
 						// Add or remove the class from the pagination element accordingly
 						const pagination = document.querySelector('.main-pagination');
@@ -81,7 +82,8 @@ function initSwiper() {
 			swiper = null;
 
 			// Manually set styles for the slides and container when Swiper is disabled
-			document.querySelector('.main-swiper-wrapper').style.transform = 'translate3d(0px, 0px, 0px)';
+			document.querySelector('.main-swiper-wrapper').style.transform =
+				'translate3d(0px, 0px, 0px)';
 			document.querySelectorAll('.main-swiper-slide').forEach((slide) => {
 				slide.style.width = '';
 				slide.style.height = '';
@@ -92,7 +94,8 @@ function initSwiper() {
 
 function updateHeaderClass() {
 	const activeSlide = swiper ? swiper.slides[swiper.activeIndex] : null;
-	const isWhiteHeaderSlide = activeSlide && activeSlide.classList.contains('white-header');
+	const isWhiteHeaderSlide =
+		activeSlide && activeSlide.classList.contains('white-header');
 	const header = document.querySelector('header');
 
 	if (isWhiteHeaderSlide) {
@@ -147,8 +150,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 });
 
-
-
 // About us Swiper
 document.addEventListener('DOMContentLoaded', function () {
 	const aboutSwiper = new Swiper('.about-swiper', {
@@ -175,7 +176,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	updateSwiperDirection();
 	window.addEventListener('resize', updateSwiperDirection);
 });
-
 
 // Standards Swiper
 const standardsSwiper = new Swiper('.standards-swiper', {
