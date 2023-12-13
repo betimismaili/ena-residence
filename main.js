@@ -102,7 +102,6 @@ function initSwiper() {
 				theme: 'custom',
 			});
 		});
-
 	}
 	 else {
 		// Destroy Swiper if it's already initialized
