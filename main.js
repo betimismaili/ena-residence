@@ -9,6 +9,51 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 
+// On load animation
+document.addEventListener("DOMContentLoaded", function () {
+	var animationContainer = document.querySelector(".animation");
+	if (animationContainer) {
+		// Trigger the animation by adding the "show" class to the animation-container
+		animationContainer.classList.add("show");
+
+		var animationWrapper = document.querySelector(".animation-wrapper");
+		// Remove animation-wrapper with fade-out effect after the animation completes
+		animationWrapper.addEventListener("animationend", function () {
+			setTimeout(function () {
+				if (animationWrapper.parentNode) {
+					// Add fade-out effect to animation-wrapper by manipulating opacity
+					animationWrapper.style.transition = "opacity 0.4s ease-out";
+					animationWrapper.style.opacity = 0;
+
+					// Wait for 1 second after fading out animation-wrapper
+					setTimeout(function () {
+						var parent = animationWrapper.parentNode;
+						if (parent) {
+							parent.removeChild(animationWrapper);
+
+							// Reset opacity for the next use (if necessary)
+							animationWrapper.style.opacity = 1;
+
+							// Fade-out effect for the main container
+							animationContainer.style.transition = "opacity 0.4s ease-out";
+							animationContainer.style.opacity = 0;
+
+							// Wait after fading out the main container
+							setTimeout(function () {
+								var mainParent = animationContainer.parentNode;
+								if (mainParent) {
+									mainParent.removeChild(animationContainer);
+								}
+							}, 750);
+						}
+					}, 1000);
+				}
+			}, 8000);
+		});
+	}
+});
+
+
 // Site Swiper
 let swiper = null;
 

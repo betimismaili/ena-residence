@@ -1,0 +1,272 @@
+.animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.animation-wrapper {
+    position: relative;
+    width: 351px;
+    height: 351px;
+
+    .line {
+        width: 0;
+        height: 3px;
+        background-color: $white;
+        position: absolute;
+        opacity: 0;
+    }
+
+    .vertical {
+        transform: rotate(-90deg);
+    }
+
+    .line1 {
+        top: 351px;
+        left: 348px;
+        animation: animateLine1 0.5s forwards 0.5s;
+    }
+
+    .line2 {
+        top: 290px;
+        left: 290px;
+        animation: animateLine2 0.5s forwards 1s;
+    }
+
+    .line3 {
+        top: 293px;
+        left: 290px;
+        animation: animateLine3 0.5s forwards 1.5s;
+    }
+
+    .line4 {
+        top: 232px;
+        left: 232px;
+        animation: animateLine4 0.5s forwards 2s;
+    }
+
+    .line5 {
+        top: 235px;
+        left: 232px;
+        animation: animateLine5 0.5s forwards 2.5s;
+    }
+
+    .line6 {
+        top: 174px;
+        left: 174px;
+        animation: animateLine6 0.5s forwards 3s;
+    }
+
+    .line7 {
+        top: 177px;
+        left: 173px;
+        animation: animateLine7 0.5s forwards 3.5s;
+    }
+
+    .line8 {
+        top: 116px;
+        left: 116px;
+        animation: animateLine8 0.5s forwards 4s;
+    }
+
+    .line9 {
+        top: 119px;
+        left: 116px;
+        animation: animateLine9 0.5s forwards 4.5s;
+    }
+
+    .line10 {
+        top: 58px;
+        left: 58px;
+        animation: animateLine10 0.5s forwards 5s;
+    }
+
+    .line11 {
+        top: 61px;
+        left: 58px;
+        animation: animateLine11 0.5s forwards 5.5s;
+    }
+
+    .line12 {
+        top: 0;
+        left: 0;
+        animation: animateLine12 0.5s forwards 6s;
+    }
+
+    .line13 {
+        top: 0;
+        left: 0;
+        animation: animateLineStretch13 1s forwards 6.5s;
+    }
+
+    .line14 {
+        top: 348px;
+        animation: animateLineStretch14 1s forwards 7.5s;
+    }
+}
+
+@keyframes animateLine1 {
+    to {
+        opacity: 1;
+        top: 319px;
+        left: 319px;
+        width: 61px;
+    }
+}
+
+@keyframes animateLine2 {
+    from {
+        opacity: 0;
+        top: 290px;
+        left: 351px;
+        width: 0;
+    }
+    to {
+        opacity: 1;
+        top: 290px;
+        left: 290px;
+        width: 61px;
+    }
+}
+
+@keyframes animateLine3 {
+    to {
+        opacity: 1;
+        top: 261px;
+        left: 261px;
+        width: 61px;
+    }
+}
+
+@keyframes animateLine4 {
+    from {
+        opacity: 0;
+        top: 232px;
+        left: 290px;
+        width: 0;
+    }
+    to {
+        opacity: 1;
+        top: 232px;
+        left: 232px;
+        width: 61px;
+    }
+}
+
+@keyframes animateLine5 {
+    to {
+        opacity: 1;
+        top: 203px;
+        left: 203px;
+        width: 61px;
+    }
+}
+
+@keyframes animateLine6 {
+    from {
+        opacity: 0;
+        top: 174px;
+        left: 232px;
+        width: 0;
+    }
+    to {
+        opacity: 1;
+        top: 174px;
+        left: 174px;
+        width: 61px;
+    }
+}
+
+@keyframes animateLine7 {
+    to {
+        opacity: 1;
+        top: 145px;
+        left: 145px;
+        width: 61px;
+    }
+}
+
+@keyframes animateLine8 {
+    from {
+        opacity: 0;
+        top: 116px;
+        left: 174px;
+        width: 0;
+    }
+    to {
+        opacity: 1;
+        top: 116px;
+        left: 116px;
+        width: 61px;
+    }
+}
+
+@keyframes animateLine9 {
+    to {
+        opacity: 1;
+        top: 87px;
+        left: 87px;
+        width: 61px;
+    }
+}
+
+@keyframes animateLine10 {
+    from {
+        opacity: 0;
+        top: 58px;
+        left: 116px;
+        width: 0;
+    }
+    to {
+        opacity: 1;
+        top: 58px;
+        left: 58px;
+        width: 61px;
+    }
+}
+
+@keyframes animateLine11 {
+    to {
+        opacity: 1;
+        top: 29px;
+        left: 29px;
+        width: 61px;
+    }
+}
+
+@keyframes animateLine12 {
+    from {
+        opacity: 0;
+        top: 0;
+        left: 58px;
+        width: 0;
+    }
+    to {
+        opacity: 1;
+        top: 0;
+        left: 0;
+        width: 61px;
+    }
+}
+
+@keyframes animateLineStretch13 {
+    to {
+        opacity: 1;
+        top: 174px;
+        left: -174px;
+        width: 351px;
+    }
+}
+
+@keyframes animateLineStretch14 {
+    to {
+        opacity: 1;
+        top: 348px;
+        width: 351px;
+        left: 0;
+    }
+}
