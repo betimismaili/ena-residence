@@ -1,26 +1,30 @@
 {{> header }}
+
+{{> hyrja-a }}
+{{> hyrja-b }}
+
 <main>
 	<div class="swiper main-swiper w-100">
 		<div class="swiper-wrapper main-swiper-wrapper">
-			<div class="swiper-slide main-swiper-slide white-header white-dots">
+			<div class="swiper-slide main-swiper-slide white-header white-dots" data-tooltip="Info">
 				{{> intro }}
 			</div>
-			<div class="swiper-slide main-swiper-slide">
+			<div class="swiper-slide main-swiper-slide" data-tooltip="Overview">
 				{{> overview }}
 			</div>
-<!--			<div class="swiper-slide main-swiper-slide">-->
-<!--				{{> apartments }}-->
-<!--			</div>-->
-			<div class="swiper-slide main-swiper-slide">
+			<div class="swiper-slide main-swiper-slide" data-tooltip="Apartments">
+				{{> apartments }}
+			</div>
+			<div class="swiper-slide main-swiper-slide" data-tooltip="About us">
 				{{> about-us }}
 			</div>
-			<div class="swiper-slide main-swiper-slide white-dots">
+			<div class="swiper-slide main-swiper-slide white-dots" data-tooltip="Standards of living">
 				{{> standards-of-living }}
 			</div>
-			<div class="swiper-slide main-swiper-slide">
+			<div class="swiper-slide main-swiper-slide" data-tooltip="Summary">
 				{{> summary }}
 			</div>
-			<div class="swiper-slide main-swiper-slide white-header white-dots">
+			<div class="swiper-slide main-swiper-slide white-header white-dots" data-tooltip="Contact form">
 				{{> contact }}
 			</div>
 		</div>

@@ -1,6 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import '/src/scss/app.scss';
+import tippy from 'tippy.js';
+import 'tippy.js/dist/tippy.css';
 
 import Swiper, { Pagination, Autoplay } from 'swiper';
 import 'swiper/css';
@@ -17,64 +19,92 @@ header.classList.add('hidden-menu');
 function initSwiper() {
 	const screenWidth = window.innerWidth;
 
-	if (screenWidth > 992) {
-		if (!swiper) {
-			swiper = new Swiper('.main-swiper', {
-				modules: [Pagination],
-				direction: 'vertical',
-				pagination: {
-					el: '.main-pagination',
-					clickable: true,
+	// Destroy existing Swiper instance if it's initialized
+	if (swiper) {
+		swiper.destroy();
+		swiper = null;
+	}
+
+	// Check if required elements exist
+	const swiperContainer = document.querySelector('.main-swiper');
+	const paginationContainer = document.querySelector('.main-pagination');
+	const slides = document.querySelectorAll('.main-swiper-slide');
+
+	if (screenWidth > 992 && swiperContainer && paginationContainer && slides.length > 0) {
+		swiper = new Swiper('.main-swiper', {
+			modules: [Pagination],
+			direction: 'vertical',
+			pagination: {
+				el: paginationContainer,
+				clickable: true,
+				bulletClass: 'swiper-pagination-bullet',
+				bulletActiveClass: 'swiper-pagination-bullet-active',
+			},
+
+			on: {
+				init: function () {
+					const initialSlide = this.slides[this.activeIndex];
+					const isWhiteDotsSlide = initialSlide.classList.contains('white-dots');
+					const pagination = document.querySelector('.main-pagination');
+
+					if (isWhiteDotsSlide) {
+						pagination.classList.add('white-dots');
+					}
+
+					// Remove the "hidden-menu" class from the first slide on Swiper initialization
+					if (this.activeIndex === 0) {
+						header.classList.remove('hidden-menu');
+					}
+
+					// Check if the initial slide has the class "white-header" and add the class to the header
+					if (initialSlide.classList.contains('white-header')) {
+						header.classList.add('header-white');
+					} else {
+						header.classList.remove('header-white');
+					}
 				},
-				on: {
-					init: function () {
-						const initialSlide = this.slides[this.activeIndex];
-						const isWhiteDotsSlide = initialSlide.classList.contains('white-dots');
-						const pagination = document.querySelector('.main-pagination');
+				slideChangeTransitionEnd: function () {
+					// Check if the active slide has the "white-dots" class
+					const activeSlide = this.slides[this.activeIndex];
+					const isWhiteDotsSlide = activeSlide.classList.contains('white-dots');
 
-						if (isWhiteDotsSlide) {
-							pagination.classList.add('white-dots');
-						}
+					// Add or remove the class from the pagination element accordingly
+					const pagination = document.querySelector('.main-pagination');
+					if (isWhiteDotsSlide) {
+						pagination.classList.add('white-dots');
+					} else {
+						pagination.classList.remove('white-dots');
+					}
 
-						// Remove the "hidden-menu" class from the first slide on Swiper initialization
-						if (this.activeIndex === 0) {
-							header.classList.remove('hidden-menu');
-						}
+					// Add the "hidden-menu" class on slide change
+					header.classList.add('hidden-menu');
 
-						// Check if the initial slide has the class "white-header" and add the class to the header
-						if (initialSlide.classList.contains('white-header')) {
-							header.classList.add('header-white');
-						} else {
-							header.classList.remove('header-white');
-						}
-					},
-					slideChangeTransitionEnd: function () {
-						// Check if the active slide has the "white-dots" class
-						const activeSlide = this.slides[this.activeIndex];
-						const isWhiteDotsSlide = activeSlide.classList.contains('white-dots');
-
-						// Add or remove the class from the pagination element accordingly
-						const pagination = document.querySelector('.main-pagination');
-						if (isWhiteDotsSlide) {
-							pagination.classList.add('white-dots');
-						} else {
-							pagination.classList.remove('white-dots');
-						}
-
-						// Add the "hidden-menu" class on slide change
-						header.classList.add('hidden-menu');
-
-						// Check if the active slide has the class "white-header" and add the class to the header
-						if (activeSlide.classList.contains('white-header')) {
-							header.classList.add('header-white');
-						} else {
-							header.classList.remove('header-white');
-						}
-					},
+					// Check if the active slide has the class "white-header" and add the class to the header
+					if (activeSlide.classList.contains('white-header')) {
+						header.classList.add('header-white');
+					} else {
+						header.classList.remove('header-white');
+					}
 				},
+			},
+		});
+
+		const paginationBullets = document.querySelectorAll('.main-pagination .swiper-pagination-bullet');
+		paginationBullets.forEach((bullet, index) => {
+			const tooltip = slides[index].dataset.tooltip;
+
+			tippy(bullet, {
+				content: tooltip,
+				arrow: false,
+				placement: 'left',
+				duration: 200,
+				animation: 'fade',
+				theme: 'custom',
 			});
-		}
-	} else {
+		});
+
+	}
+	 else {
 		// Destroy Swiper if it's already initialized
 		if (swiper) {
 			swiper.destroy();
@@ -135,16 +165,19 @@ document.addEventListener('DOMContentLoaded', function () {
 	const scrollDownButton = document.getElementById('scroll-down-btn');
 	const targetSection = document.getElementById('next-section');
 
-	scrollDownButton.addEventListener('click', function () {
-		// Check if Swiper is active
-		if (swiper) {
-			// Use Swiper's built-in method to slide to the next section
-			swiper.slideNext();
-		} else {
-			// Swiper is not active, scroll to the target section manually
-			targetSection.scrollIntoView({ behavior: 'smooth' });
-		}
-	});
+	// Check if scrollDownButton element exists
+	if (scrollDownButton) {
+		scrollDownButton.addEventListener('click', function () {
+			// Check if Swiper is active
+			if (swiper) {
+				// Use Swiper's built-in method to slide to the next section
+				swiper.slideNext();
+			} else {
+				// Swiper is not active, scroll to the target section manually
+				targetSection.scrollIntoView({ behavior: 'smooth' });
+			}
+		});
+	}
 });
 
 
@@ -182,3 +215,85 @@ const standardsSwiper = new Swiper('.standards-swiper', {
 	loop: true,
 	direction: 'horizontal',
 });
+
+
+// Apartments section - change images on links hover (Hyrja A, Hyrja B)
+document.addEventListener('DOMContentLoaded', function () {
+	const btns = document.querySelectorAll('.o-apartments__content__btn');
+	const imagesContainer = document.querySelector('.o-apartments__images');
+
+	// Check if imagesContainer is present before attaching event listeners
+	if (imagesContainer) {
+		btns.forEach(function (btn, index) {
+			btn.addEventListener('mouseenter', function () {
+				// Add "row-reverse" class when hovering over every nth child
+				if ((index + 1) % 2 === 0) {
+					imagesContainer.classList.add('row-reverse');
+				}
+			});
+			btn.addEventListener('mouseleave', function () {
+				// Remove "row-reverse" class when mouse leaves
+				imagesContainer.classList.remove('row-reverse');
+			});
+		});
+	}
+});
+
+
+// Apartments section - horizontal menu of floors
+function setupScrolling(id) {
+	var container = document.getElementById(id);
+
+	if (container) {
+		var isDragging = false;
+		var startX, scrollLeft;
+
+		container.addEventListener('wheel', function (event) {
+			event.preventDefault();
+			container.scrollLeft += event.deltaY;
+		});
+
+		container.addEventListener('mousedown', function (e) {
+			isDragging = true;
+			startX = e.pageX - container.offsetLeft;
+			scrollLeft = container.scrollLeft;
+		});
+
+		container.addEventListener('mouseup', function () {
+			isDragging = false;
+		});
+
+		container.addEventListener('mousemove', function (e) {
+			if (!isDragging) return;
+			var x = e.pageX - container.offsetLeft;
+			var walk = (x - startX) * 2;
+			container.scrollLeft = scrollLeft - walk;
+		});
+	}
+}
+setupScrolling('firstEntryTab');
+setupScrolling('secondEntryTab');
+
+
+function setupOffcanvasEvents(offcanvasId, headerId) {
+	var offcanvas = document.getElementById(offcanvasId);
+	var header = document.getElementById(headerId);
+
+	if (offcanvas) {
+		offcanvas.addEventListener('show.bs.offcanvas', function () {
+			// When offcanvas is opened, hide the header
+			if (header) {
+				header.style.display = "none";
+			}
+		});
+
+		offcanvas.addEventListener('hide.bs.offcanvas', function () {
+			// When offcanvas is closed, show the header
+			if (header) {
+				header.style.display = "block";
+			}
+		});
+	}
+}
+setupOffcanvasEvents('offcanvasFirstEntry', 'header');
+setupOffcanvasEvents('offcanvasSecondEntry', 'header');

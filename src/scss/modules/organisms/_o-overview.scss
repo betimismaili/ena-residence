@@ -17,6 +17,15 @@
         width: 42%;
         top: 50%;
         transform: translateY(-50%);
+        overflow: hidden;
+
+        img {
+            transition: 0.5s;
+
+            &:hover {
+                transform: scale(1.15);
+            }
+        }
 
         @media (min-width: 1700px) {
             width: 44%;

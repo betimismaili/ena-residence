@@ -9,6 +9,16 @@
         @include media-breakpoint-down(lg) {
             flex-direction: column;
         }
+
+        .swiper-slide {
+            overflow-y: hidden;
+            overflow-x: hidden;
+
+            @include media-breakpoint-down(lg) {
+                overflow-y: hidden;
+                overflow-x: auto;
+            }
+        }
     }
 
     .main-pagination {
@@ -41,4 +51,20 @@
             }
         }
     }
+}
+
+.tippy-box[data-theme~="custom"] {
+    font-size: 1.6rem;
+    line-height: 1.9rem;
+    font-weight: 500;
+    font-family: $outfit;
+    color: $primary;
+    background-color: $white;
+    border-radius: 5rem;
+    padding: 0.4rem 3rem 0.4rem 1rem;
+    background-image: url(/images/tooltip-arrow.svg);
+    background-repeat: no-repeat;
+    background-size: 1.5rem;
+    background-position: center right 1rem;
+    box-shadow: 0 1px 10px #00000003;
 }

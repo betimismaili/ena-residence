@@ -1,0 +1,105 @@
+.o-apartments {
+    padding-top: 10rem;
+
+    @include media-breakpoint-down(lg) {
+        padding-top: 3.5rem;
+        padding-bottom: 8.2rem;
+    }
+
+    &__content {
+        p {
+            @include media-breakpoint-down(lg) {
+                line-height: 2.1rem;
+            }
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+
+            @include media-breakpoint-down(lg) {
+                margin-bottom: 3.2rem;
+            }
+
+            li {
+                button.o-apartments__content__btn {
+                    border: 0;
+                    outline: none;
+                    border-bottom: 1px solid #E0E0E0;
+                    background-color: transparent;
+                    font-size: 2.2rem;
+                    line-height: 3rem;
+                    transition: 0.3s;
+
+                    @include media-breakpoint-down(lg) {
+                        font-size: 1.6rem;
+                        line-height: 3rem;
+                    }
+
+                    img {
+                        transform: rotate(-90deg);
+                    }
+
+                    &:hover {
+                        background-color: $white;
+                        border-bottom: 1px solid transparent;
+                        box-shadow: 0 3px 30px #00000012;
+                    }
+                }
+            }
+        }
+    }
+
+    &__images {
+        .row {
+            margin-bottom: 2.4rem;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        img {
+            object-fit: cover;
+            border-radius: 1rem;
+
+            @include media-breakpoint-down(lg) {
+                border-radius: none;
+            }
+
+            &.first {
+                height: 35rem;
+
+                @include media-breakpoint-down(md) {
+                    height: 29rem;
+                }
+            }
+
+            &.second {
+                height: 47rem;
+
+                @include media-breakpoint-down(md) {
+                    height: 29rem;
+                }
+            }
+        }
+
+        &__box {
+            border-radius: 1rem;
+
+            span {
+                font-size: 6rem;
+                line-height: 7.2rem;
+                margin-bottom: 1.6rem;
+            }
+        }
+
+        &.row-reverse {
+            .row {
+                flex-direction: row-reverse;
+                justify-content: start;
+            }
+        }
+    }
+}

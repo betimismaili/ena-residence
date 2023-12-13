@@ -15,6 +15,7 @@
   "dependencies": {
     "bootstrap": "^5.2.3",
     "swiper": "^9.0.2",
+    "tippy.js": "^6.3.7",
     "vite-plugin-handlebars": "^1.6.0"
   }
 }
