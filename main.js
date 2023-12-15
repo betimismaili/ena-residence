@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import 'popper.js'
 import '/src/scss/app.scss';
 import tippy from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
@@ -25,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
 					animationWrapper.style.transition = "opacity 0.4s ease-out";
 					animationWrapper.style.opacity = 0;
 
-					// Wait for 1 second after fading out animation-wrapper
+					// Wait for .. second after fading out animation-wrapper
 					setTimeout(function () {
 						var parent = animationWrapper.parentNode;
 						if (parent) {
@@ -44,11 +45,11 @@ document.addEventListener("DOMContentLoaded", function () {
 								if (mainParent) {
 									mainParent.removeChild(animationContainer);
 								}
-							}, 750);
+							}, 300);
 						}
-					}, 1000);
+					}, 400);
 				}
-			}, 8000);
+			}, 4800);
 		});
 	}
 });
@@ -207,7 +208,7 @@ document.addEventListener('scroll', function () {
 // Scroll down button on the first slide
 document.addEventListener('DOMContentLoaded', function () {
 	const scrollDownButton = document.getElementById('scroll-down-btn');
-	const targetSection = document.getElementById('next-section');
+	const targetSection = document.getElementById('overview');
 
 	// Check if scrollDownButton element exists
 	if (scrollDownButton) {
@@ -341,3 +342,93 @@ function setupOffcanvasEvents(offcanvasId, headerId) {
 }
 setupOffcanvasEvents('offcanvasFirstEntry', 'header');
 setupOffcanvasEvents('offcanvasSecondEntry', 'header');
+
+
+// Links on header
+document.addEventListener("DOMContentLoaded", function () {
+	// Get all links
+	var links = document.querySelectorAll('.o-header a');
+
+	// Add click event listener to each link
+	links.forEach(function (link) {
+		link.addEventListener('click', function (event) {
+			event.preventDefault();
+
+			// Get the target section's id from the data-target-id attribute
+			var targetId = link.getAttribute('data-target-id');
+			var targetSection = document.getElementById(targetId);
+
+			if (targetSection) {
+				// Find the index of the target section in the Swiper slides
+				var targetIndex = Array.from(targetSection.parentNode.children).indexOf(targetSection);
+
+				// Slide to the target section with smooth behavior using Swiper
+				if (swiper && targetIndex !== -1) {
+					swiper.slideTo(targetIndex);
+				} else {
+					// Swiper is not active or target section not found, scroll to the target section manually
+					targetSection.scrollIntoView({ behavior: 'smooth' });
+				}
+			}
+		});
+	});
+});
+
+
+// Mobile Menu
+document.addEventListener("DOMContentLoaded", function () {
+	openMenu();
+
+	// Smooth scroll to sections using data-target-id
+	document.querySelectorAll('[data-target-id]').forEach(anchor => {
+		anchor.addEventListener('click', function (e) {
+			e.preventDefault();
+
+			const targetId = this.getAttribute('data-target-id');
+			const targetElement = document.getElementById(targetId);
+			const header = document.querySelector('.o-header');
+
+			if (targetElement) {
+				window.scrollTo({
+					top: targetElement.offsetTop - header.offsetHeight,
+					behavior: 'smooth'
+				});
+
+				// Close the menu after the scroll
+				closeMenu();
+			}
+		});
+	});
+
+	function openMenu() {
+		var toggleButton = document.querySelector('.o-header__hamburger');
+		var body = document.querySelector('body');
+
+		if (toggleButton) toggleButton.addEventListener('click', function () {
+			var header = document.querySelector('.o-header');
+			if (this.classList.contains('active')) {
+				closeMenu(header);
+			} else {
+				header.classList.add("open-menu");
+				this.classList.add('active');
+				body.classList.add('overflow-hidden');
+			}
+		});
+	}
+
+	function closeMenu() {
+		var header = document.querySelector('.o-header');
+		var toggleButton = document.querySelector('.o-header__hamburger');
+		var body = document.querySelector('body');
+
+		// Close the menu immediately
+		header.classList.remove("open-menu");
+		toggleButton.classList.remove('active');
+		body.classList.remove('overflow-hidden');
+
+		// Ensure the menu is closed after a short delay
+		setTimeout(function () {
+			header.classList.remove('close-menu');
+		}, 0);
+	}
+});
