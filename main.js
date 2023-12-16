@@ -5,7 +5,7 @@ import '/src/scss/app.scss';
 import tippy from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
 
-import Swiper, { Pagination, Autoplay } from 'swiper';
+import Swiper, { Pagination, Autoplay, Mousewheel } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
@@ -78,15 +78,13 @@ function initSwiper() {
 
 	if (screenWidth > 992 && swiperContainer && paginationContainer && slides.length > 0) {
 		swiper = new Swiper('.main-swiper', {
-			modules: [Pagination],
+			modules: [Pagination, Mousewheel],
 			direction: 'vertical',
-			effect: "slide",
-			mousewheelSensitivity: 1,
-			mousewheel: {
-				releaseOnEdges: true,
-			},
-			touchReleaseOnEdges:true,
+			releaseOnEdges:true,
+			slidesPerView: 1,
+			mousewheel: true,
 			keyboard: true,
+			sensitivity:0.2,
 			pagination: {
 				el: paginationContainer,
 				clickable: true,
@@ -264,7 +262,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Standards Swiper
 const standardsSwiper = new Swiper('.standards-swiper', {
+	modules: [Autoplay],
 	loop: true,
+	disableOnInteraction: false,
+	autoplay: {
+		delay: 5000,
+	  },
 	direction: 'horizontal',
 });
 
