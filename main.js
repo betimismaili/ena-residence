@@ -80,6 +80,13 @@ function initSwiper() {
 		swiper = new Swiper('.main-swiper', {
 			modules: [Pagination],
 			direction: 'vertical',
+			effect: "slide",
+			mousewheelSensitivity: 1,
+			mousewheel: {
+				releaseOnEdges: true,
+			},
+			touchReleaseOnEdges:true,
+			keyboard: true,
 			pagination: {
 				el: paginationContainer,
 				clickable: true,
