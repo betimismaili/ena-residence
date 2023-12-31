@@ -10,28 +10,22 @@
     justify-content: center;
 
     @include media-breakpoint-down(lg) {
-        padding: 3rem 0;
+        padding: 4rem 0 1rem 0;
     }
 
     &__headline {
         font-size: 15rem;
-        line-height: 22.5rem;
+        line-height: 1;
         font-weight: 500;
+        margin-bottom: 4rem;
 
         @include media-breakpoint-down(xl) {
             font-size: 12rem;
-            line-height: 15rem;
         }
 
         @include media-breakpoint-down(lg) {
             font-size: 8rem;
-            line-height: 12rem;
-        }
-
-        br {
-            @include media-breakpoint-down(xl) {
-                display: none;
-            }
+            margin-bottom: 2.4rem;
         }
     }
 
@@ -105,6 +99,55 @@
     textarea {
         resize: none;
     }
+
+    &__bottom {
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+
+            li {
+                a {
+                    color: #F8F9FC;
+                    font-family: $manrope;
+                    font-size: 1.5rem;
+                    line-height: 1.8rem;
+                    font-weight: 400;
+                }
+
+                @include media-breakpoint-down(lg) {
+                    margin-bottom: 1.7rem;
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+
+            &.o-contact__bottom__social-links {
+                li {
+                    a {
+                        img {
+                            object-fit: contain;
+                            display: flex;
+                            width: 1.5rem;
+                            height: 1.5rem;
+                            margin-right: 1.5rem;
+                        }
+                    }
+
+                    &:last-child {
+                        a {
+                            img {
+                                margin-right: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     input::-webkit-input-placeholder { -webkit-transition:.5s;}
     input:-moz-input-placeholder { -moz-transition:.5s;}
     input::-moz-input-placeholder { -moz-transition:.5s;}

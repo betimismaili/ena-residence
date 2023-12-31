@@ -12,6 +12,8 @@
         }
 
         .swiper-wrapper {
+            //transition-timing-function: linear;
+
             @include media-breakpoint-up(lg) {
                 width: 100%;
             }

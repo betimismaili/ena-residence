@@ -18,6 +18,7 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
+        transition: 0.5s;
 
         li {
             a {
@@ -31,8 +32,17 @@
             }
         }
 
+        &.o-header__left-list {
+            position: relative;
+            right: 0;
+            transition: 0.7s;
+        }
+
         &.o-header__right-list {
             justify-content: end;
+            position: relative;
+            left: 0;
+            transition: 0.7s;
 
             img {
                 width: inherit;
@@ -243,8 +253,19 @@
         .o-header__right-list {
 
             @include media-breakpoint-up(lg) {
-                display: none;
+                //display: none;
+                visibility: visible;
+                opacity: 0;
+                pointer-events: none;
             }
+        }
+
+        .o-header__left-list {
+            right: -70%;
+        }
+
+        .o-header__right-list {
+            left: -110%;
         }
     }
 

@@ -187,12 +187,12 @@ window.addEventListener('resize', function () {
 });
 initSwiper();
 
-// Add event listener for clicking on the logo to remove the "hidden-menu" class
+// Add event listener for clicking on the logo to toggle the "hidden-menu" class
 const logoColumn = document.querySelector('.logo');
 if (logoColumn) {
 	logoColumn.addEventListener('click', function (event) {
-		// Remove the "hidden-menu" class when clicking on the logo
-		header.classList.remove('hidden-menu');
+		// Toggle the "hidden-menu" class when clicking on the logo
+		header.classList.toggle('hidden-menu');
 		// Prevent the click event from propagating to the document click event
 		event.stopPropagation();
 	});
@@ -237,12 +237,13 @@ document.addEventListener('DOMContentLoaded', function () {
 	const aboutSwiper = new Swiper('.about-swiper', {
 		modules: [Autoplay],
 		autoplay: {
-			delay: 2000,
+			delay: 600,
 		},
 		loop: true,
 		forceLoop: true,
 		direction: 'vertical',
 		slidesPerView: 3,
+		speed: 600,
 	});
 
 	function updateSwiperDirection() {
