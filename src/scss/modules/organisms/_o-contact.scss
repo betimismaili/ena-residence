@@ -14,14 +14,10 @@
     }
 
     &__headline {
-        font-size: 15rem;
+        font-size: 9.4rem;
         line-height: 1;
         font-weight: 500;
         margin-bottom: 4rem;
-
-        @include media-breakpoint-down(xl) {
-            font-size: 12rem;
-        }
 
         @include media-breakpoint-down(lg) {
             font-size: 8rem;
@@ -30,7 +26,15 @@
     }
 
     p {
+        font-size: 1.8rem;
+        line-height: 2.7rem;
+        font-family: $manrope;
+        margin-bottom: 3rem;
+        color: $white;
+        font-weight: 400;
+
         @include media-breakpoint-down(lg) {
+            font-size: 1.4rem;
             line-height: 2.1rem;
         }
     }

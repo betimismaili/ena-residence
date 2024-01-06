@@ -84,7 +84,8 @@ function initSwiper() {
 			slidesPerView: 1,
 			mousewheel: true,
 			keyboard: true,
-			sensitivity:0.2,
+			sensitivity: 0.2,
+			speed: 500,
 			pagination: {
 				el: paginationContainer,
 				clickable: true,
