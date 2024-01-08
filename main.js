@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			setTimeout(function () {
 				if (animationWrapper.parentNode) {
 					// Add fade-out effect to animation-wrapper by manipulating opacity
-					animationWrapper.style.transition = "opacity 0.4s ease-out";
+					animationWrapper.style.transition = "opacity 0.8s ease-out";
 					animationWrapper.style.opacity = 0;
 
 					// Wait for .. second after fading out animation-wrapper
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
 							animationWrapper.style.opacity = 1;
 
 							// Fade-out effect for the main container
-							animationContainer.style.transition = "opacity 0.4s ease-out";
+							animationContainer.style.transition = "opacity 0.8s ease-out";
 							animationContainer.style.opacity = 0;
 
 							// Wait after fading out the main container
@@ -47,9 +47,9 @@ document.addEventListener("DOMContentLoaded", function () {
 								}
 							}, 300);
 						}
-					}, 400);
+					}, 300);
 				}
-			}, 4800);
+			}, 4050);
 		});
 	}
 });
