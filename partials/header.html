@@ -1,115 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-    <title>Ena Residence - AL</title>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function () {
-            // https://dashboard.emailjs.com/admin/account
-            emailjs.init('tITwqvV02N6_8k82j');
-        })();
-    </script>
-</head>
-<body>
-<header class="o-header">
-    <div class="container">
-        <div class="row justify-content-between align-items-center">
-            <div class="col-4 d-none d-lg-flex flex-column justify-content-center">
-                <ul class="o-header__left-list">
-                    <li>
-                        <a href="#" data-target-id="apartments">Projektet</a>
-                    </li>
-                    <li>
-                        <a href="#" data-target-id="overview">Rreth nesh</a>
-                    </li>
-                    <li>
-                        <a href="#" data-target-id="about-us">Misioni</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-12 col-lg-2 d-flex flex-column align-items-center logo">
-                <img src="../images/logo.svg" alt="" class="logo-blue"/>
-                <img src="../images/logo-white.svg" alt="" class="logo-white"/>
-            </div>
-            <div class="col-4 d-none d-lg-flex flex-column align-items-end justify-content-center">
-                <ul class="o-header__right-list">
-                    <li>
-                        <a href="#" class="d-flex align-items-center justify-content-center" data-target-id="contact">
-                            Kontakti
-                            <img src="../images/down-arrow-white.svg" alt="" class="down-white-arrow"/>
-                            <img src="../images/down-arrow-blue.svg" alt="" class="down-blue-arrow"/>
-                        </a>
-                    </li>
-                    <li>
-                        <ul class="o-header__language ms-2">
-                            <li class="is-active">
-                                <a href="#">SHQ</a>
-                            </li>
-                            <li>
-                                <a href="#">EN</a>
-                            </li>
-                            <li>
-                                <a href="#">DE</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"
+		/>
+		<meta name="description" content="Faqja zyrtare e Ena Residence" />
+		<title>Ena Residence - AL</title>
+		<script
+			defer
+			type="text/javascript"
+			src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+		></script>
+		<script type="text/javascript">
+			(function () {
+				// https://dashboard.emailjs.com/admin/account
+				emailjs.init('tITwqvV02N6_8k82j');
+			})();
+		</script>
+	</head>
+	<body>
+		<header class="o-header">
+			<div class="container">
+				<div class="row justify-content-between align-items-center">
+					<div
+						class="col-4 d-none d-lg-flex flex-column justify-content-center"
+					>
+						<ul class="o-header__left-list">
+							<li>
+								<a href="#" data-target-id="apartments">Projektet</a>
+							</li>
+							<li>
+								<a href="#" data-target-id="overview">Rreth nesh</a>
+							</li>
+							<li>
+								<a href="#" data-target-id="about-us">Misioni</a>
+							</li>
+						</ul>
+					</div>
+					<div
+						class="col-12 col-lg-2 d-flex flex-column align-items-center logo"
+					>
+						<img src="../images/logo.svg" alt="" class="logo-blue" />
+						<img src="../images/logo-white.svg" alt="" class="logo-white" />
+					</div>
+					<div
+						class="col-4 d-none d-lg-flex flex-column align-items-end justify-content-center"
+					>
+						<ul class="o-header__right-list">
+							<li>
+								<a
+									href="#"
+									class="d-flex align-items-center justify-content-center"
+									data-target-id="contact"
+								>
+									Kontakti
+									<img
+										src="../images/down-arrow-white.svg"
+										alt=""
+										class="down-white-arrow"
+									/>
+									<img
+										src="../images/down-arrow-blue.svg"
+										alt=""
+										class="down-blue-arrow"
+									/>
+								</a>
+							</li>
+							<li>
+								<ul class="o-header__language ms-2">
+									<li class="is-active">
+										<a href="#">SHQ</a>
+									</li>
+									<li>
+										<a href="#">EN</a>
+									</li>
+									<li>
+										<a href="#">DE</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
 
-            <div class="o-header__hamburger d-lg-none">
-                <span></span>
-            </div>
-            <div class="o-header__main-menu d-flex d-lg-none">
-                <ul>
-                    <li>
-                        <a href="" data-target-id="intro">
-                            <img src="../images/logo-white.svg" alt=""/>
-                            Informata
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" data-target-id="overview">
-                            <img src="../images/search-icon.svg" alt=""/>
-                            Rreth nesh
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" data-target-id="apartments">
-                            <img src="../images/apartments-icon.svg" alt=""/>
-                            Apartamentet
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" data-target-id="about-us">
-                            <img src="../images/about-icon.svg" alt=""/>
-                            Misioni
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" data-target-id="standards">
-                            <img src="../images/standards-icon.svg" alt=""/>
-                            Standartet e jetesës
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" data-target-id="summary">
-                            <img src="../images/summary-icon.svg" alt=""/>
-                            Përmbledhje
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" data-target-id="contact">
-                            <img src="../images/contact-icon.svg" alt=""/>
-                            Kontakti
-                        </a>
-                    </li>
-                </ul>
-                <button class="small bg-white text-primary border-0 py-1 font-manrope--regular fw-bold">
-                    Kontakti
-                </button>
-            </div>
-        </div>
-    </div>
-</header>
+					<div class="o-header__hamburger d-lg-none">
+						<span></span>
+					</div>
+					<div class="o-header__main-menu d-flex d-lg-none">
+						<ul>
+							<li>
+								<a href="" data-target-id="intro">
+									<img src="../images/logo-white.svg" alt="" />
+									Informata
+								</a>
+							</li>
+							<li>
+								<a href="" data-target-id="overview">
+									<img src="../images/search-icon.svg" alt="" />
+									Rreth nesh
+								</a>
+							</li>
+							<li>
+								<a href="" data-target-id="apartments">
+									<img src="../images/apartments-icon.svg" alt="" />
+									Apartamentet
+								</a>
+							</li>
+							<li>
+								<a href="" data-target-id="about-us">
+									<img src="../images/about-icon.svg" alt="" />
+									Misioni
+								</a>
+							</li>
+							<li>
+								<a href="" data-target-id="standards">
+									<img src="../images/standards-icon.svg" alt="" />
+									Standartet e jetesës
+								</a>
+							</li>
+							<li>
+								<a href="" data-target-id="summary">
+									<img src="../images/summary-icon.svg" alt="" />
+									Përmbledhje
+								</a>
+							</li>
+							<li>
+								<a href="" data-target-id="contact">
+									<img src="../images/contact-icon.svg" alt="" />
+									Kontakti
+								</a>
+							</li>
+						</ul>
+						<button
+							class="small bg-white text-primary border-0 py-1 font-manrope--regular fw-bold"
+						>
+							Kontakti
+						</button>
+					</div>
+				</div>
+			</div>
+		</header>
+	</body>
+</html>
