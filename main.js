@@ -328,58 +328,41 @@ function setupScrolling(id) {
 		});
 	}
 }
-setupScrolling('firstEntryTab');
-setupScrolling('secondEntryTab');
+setupScrolling('firstEntryShqTab');
+setupScrolling('firstEntryEnTab');
+setupScrolling('firstEntryDeTab');
+setupScrolling('secondEntryShqTab');
+setupScrolling('secondEntryEnTab');
+setupScrolling('secondEntryDeTab');
 
 
-function setupOffcanvasEvents(offcanvasId, headerId) {
-	var offcanvas = document.getElementById(offcanvasId);
-	var header = document.getElementById(headerId);
 
-	if (offcanvas) {
-		offcanvas.addEventListener('show.bs.offcanvas', function () {
-			// When offcanvas is opened, hide the header
-			if (header) {
-				header.style.display = "none";
-			}
-		});
-
-		offcanvas.addEventListener('hide.bs.offcanvas', function () {
-			// When offcanvas is closed, show the header
-			if (header) {
-				header.style.display = "block";
-			}
-		});
-	}
-}
-setupOffcanvasEvents('offcanvasFirstEntry', 'header');
-setupOffcanvasEvents('offcanvasSecondEntry', 'header');
-
-
-// Links on header
 document.addEventListener("DOMContentLoaded", function () {
-	// Get all links
-	var links = document.querySelectorAll('.o-header a');
+	// Get all links within the .o-header element, excluding those with class "normal-link"
+	var links = document.querySelectorAll('.o-header a:not(.normal-link)');
 
 	// Add click event listener to each link
 	links.forEach(function (link) {
 		link.addEventListener('click', function (event) {
-			event.preventDefault();
-
-			// Get the target section's id from the data-target-id attribute
+			// Check if the link has a data-target-id attribute
 			var targetId = link.getAttribute('data-target-id');
-			var targetSection = document.getElementById(targetId);
+			if (targetId) {
+				event.preventDefault();
 
-			if (targetSection) {
-				// Find the index of the target section in the Swiper slides
-				var targetIndex = Array.from(targetSection.parentNode.children).indexOf(targetSection);
+				// Get the target section's id from the data-target-id attribute
+				var targetSection = document.getElementById(targetId);
 
-				// Slide to the target section with smooth behavior using Swiper
-				if (swiper && targetIndex !== -1) {
-					swiper.slideTo(targetIndex);
-				} else {
-					// Swiper is not active or target section not found, scroll to the target section manually
-					targetSection.scrollIntoView({ behavior: 'smooth' });
+				if (targetSection) {
+					// Find the index of the target section in the Swiper slides
+					var targetIndex = Array.from(targetSection.parentNode.children).indexOf(targetSection);
+
+					// Slide to the target section with smooth behavior using Swiper
+					if (swiper && targetIndex !== -1) {
+						swiper.slideTo(targetIndex);
+					} else {
+						// Swiper is not active or target section not found, scroll to the target section manually
+						targetSection.scrollIntoView({ behavior: 'smooth' });
+					}
 				}
 			}
 		});

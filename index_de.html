@@ -1,0 +1,35 @@
+{{> header_de }}
+
+{{> eingang-a }}
+{{> eingang-b }}
+
+<main>
+<!--    	{{> on-load-animation }}-->
+    <div class="swiper main-swiper w-100">
+        <div class="swiper-wrapper main-swiper-wrapper">
+            <div class="swiper-slide main-swiper-slide white-header white-dots" id="information_de" data-tooltip="Informationen">
+                {{> informationen }}
+            </div>
+            <div class="swiper-slide main-swiper-slide" id="about_us_de" data-tooltip="Über uns">
+                {{> uber_uns }}
+            </div>
+            <div class="swiper-slide main-swiper-slide" id="apartments_de" data-tooltip="Wohnungen">
+                {{> wohnungen }}
+            </div>
+            <div class="swiper-slide main-swiper-slide" id="mission_de" data-tooltip="Unsere Mission">
+                {{> unsere_mission }}
+            </div>
+            <div class="swiper-slide main-swiper-slide white-dots" id="standards_de" data-tooltip="Höchste Standards">
+                {{> hochste_standards }}
+            </div>
+            <div class="swiper-slide main-swiper-slide" id="summary_de" data-tooltip="Zusammenfassung">
+                {{> zusammenfassung }}
+            </div>
+            <div class="swiper-slide main-swiper-slide white-header white-dots" id="contact_de" data-tooltip="Kontakt">
+                {{> kontakt }}
+            </div>
+        </div>
+        <div class="swiper-pagination main-pagination"></div>
+    </div>
+</main>
+{{> footer }}
