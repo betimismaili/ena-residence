@@ -1,36 +1,37 @@
 <footer></footer>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-	<script type="text/javascript">
-		(function () {
-			// https://dashboard.emailjs.com/admin/account
-			// emailjs.init('tITwqvV02N6_8k82j');
-			emailjs.init('QEYzJF9Oq2niL6U46');
-		})();
-	</script>
+<script type="text/javascript">
+    (function () {
+        // https://dashboard.emailjs.com/admin/account
+        emailjs.init('tITwqvV02N6_8k82j');
+        // emailjs.init('QEYzJF9Oq2niL6U46');
+    })();
+</script>
 <script>
 
-  function sendMail() {
-	var params = {
-		name: document.getElementById('name').value,
-		tel: document.getElementById('tel').value,
-		email: document.getElementById('email').value,
-		message: document.getElementById('msg').value,
-	};
-	const serviceID = 'service_3i70q3i';
-	const templateID = 'template_eqpr7tn';
-	emailjs
-		.send(serviceID, templateID, params)
-		.then((res) => {
-			document.getElementById('name').value = '';
-			document.getElementById('tel').value = '';
-			document.getElementById('email').value = '';
-			document.getElementById('msg').value = '';
-			console.log(res);
-			alert('Your message sent successfully!!');
-		})
-		.catch((err) => console.log(err));
-}
+    function sendMail() {
+        var params = {
+            name: document.getElementById('name').value,
+            tel: document.getElementById('tel').value,
+            email: document.getElementById('email').value,
+            message: document.getElementById('msg').value,
+        };
+        const serviceID = 'service_xgp3bku';
+        const templateID = 'template_a2yadpg';
+        emailjs
+            .send(serviceID, templateID, params)
+            .then((res) => {
+                document.getElementById('name').value = '';
+                document.getElementById('tel').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('msg').value = '';
+                console.log(res);
+                alert('Your message sent successfully!!');
+            })
+            .catch((err) => console.log(err));
+    }
 </script>
 <script type="module" src="/main.js"></script>
 </body>
+
 </html>
